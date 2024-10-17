@@ -1,27 +1,23 @@
-const _ = require('lodash');
-const user = {
-    name: 'Imię',
-    surname: 'Nazwisko',
-    allGrades: [
-      {
-        subjectName: 'Name1',
-        grades: [5, 4, 3, 5, 2],
-        weight: 3
-      },
-      {
-        subjectName: 'Name2',
-        grades: [3, 3.5, 2],
-        weight: 1
-      },
-      {
-        subjectName: 'Name3',
-        grades: [4, 3, 4, 3.5],
-        weight: 5
-      }
-    ]
-  };
-  
-  const sub1 = _.find(user.allGrades, { weight: 1 });
+function getMails(arr) {
 
-  console.log(sub1);
+    const emailPattern = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/;
   
+    const emails = arr.filter(item => typeof item === 'string' && emailPattern.test(item));
+  
+    return emails.sort();
+  }
+  
+  const collections = [
+    {},
+    15,
+    "hello@test.pl",
+    null,
+    ['aaa', 'bbb', 5],
+    'admin@gmail.com',
+    undefined,
+    'a34@yahoo.com',
+    '321@a',
+    '321.pl'
+  ];
+  
+  console.log(getMails(collections));
