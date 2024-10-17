@@ -1,3 +1,4 @@
+const _ = require('lodash');
 const user = {
     name: 'Imię',
     surname: 'Nazwisko',
@@ -20,19 +21,7 @@ const user = {
     ]
   };
   
-  function calcAvg(user) {
-    let sum = 0;
-    let wSum = 0;
-  
-    user.allGrades.forEach(sub => {
-      const avg = sub.grades.reduce((a, b) => a + b, 0) / sub.grades.length;
-      sum += avg * sub.weight;
-      wSum += sub.weight;
-    });
-  
-    const wAvg = sum / wSum;
-    console.log(`Imię: ${user.name}, Nazwisko: ${user.surname}, Średnia ważona: ${wAvg.toFixed(2)}`);
-  }
-  
-  calcAvg(user);
+  const sub1 = _.find(user.allGrades, { weight: 1 });
+
+  console.log(sub1);
   
